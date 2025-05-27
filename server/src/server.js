@@ -4,7 +4,8 @@ const compression = require('compression');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const connect = require('./configs/db');
-const PORT = 8080;
+
+const PORT = process.env.PORT || 8080; 
 
 // Other Route files
 const { userRoute, conversationRoute, gigRoute, messageRoute, orderRoute, reviewRoute, authRoute } = require('./routes');
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(compression());
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:4173', 'https://workhive-one.vercel.app', 'https://workhive-hy6o8pc84-sourav-pauls-projects-65fede6e.vercel.app'],
+    origin: ['http://localhost:5173', 'http://localhost:4173', 'https://worknest-4miners.netlify.app'],
     credentials: true
 }));
 
@@ -41,7 +42,7 @@ app.get('/ip', (request, response) => {
     const ips = list.split(',');
 
     return response.send({ ip: ips[0] });
-})
+});
 
 app.listen(PORT, async () => {
     try {
@@ -51,4 +52,4 @@ app.listen(PORT, async () => {
     catch ({ message }) {
         console.log(message);
     }
-})
+});
