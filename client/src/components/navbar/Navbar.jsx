@@ -6,7 +6,7 @@ import { axiosFetch } from "../../utils";
 import { useRecoilState } from "recoil";
 import { userState } from "../../atoms";
 import { Loader } from "..";
-import Avatar from '../avatar/Avatar';
+import Avatar from '../Avatar/Avatar';
 import "./Navbar.scss";
 
 import "slick-carousel/slick/slick.css";
